@@ -9,7 +9,7 @@
              d:DesignHeight="300" d:DesignWidth="400">
     <UserControl.Resources>
         <!--带清除按钮文字框-->
-        <Style TargetType="{x:Type textBoxs:XSearchTextBox}">
+        <Style TargetType="{x:Type textBoxs:XSearchTextBox}" x:Key="Simple">
             <Setter Property="VerticalContentAlignment" Value="Center"/>
             <Setter Property="Template">
                 <Setter.Value>
@@ -66,8 +66,59 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        
+        <!--好看简单的一个带清除按钮的搜索框-->
+        <Style TargetType="{x:Type textBoxs:YSearchTextBox}" x:Key="goodText">
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type textBoxs:YSearchTextBox}">
+                        <Border CornerRadius="20" BorderBrush="#E6E6E6" BorderThickness="1" Padding="0,0,5,0" Background="{TemplateBinding Background}">
+                            <DockPanel LastChildFill="True">
+                                <Button Width="20" Height="20" DockPanel.Dock="Left" Margin="16,0,0,0">
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <Path Name="searchPath" Stretch="None" Fill="Gray"
+                                              Data="M18,17l-3.7-3.7c1-1.2,1.6-2.8,1.6-4.5c0-3.9-3.2-7.1-7.1-7.1S1.8,4.9,1.8,8.9S5,16,8.9,16
+	c1.7,0,3.3-0.6,4.5-1.6L17,18c0.1,0.1,0.3,0.2,0.5,0.2s0.4-0.1,0.5-0.2C18.3,17.8,18.3,17.3,18,17z M3.2,8.9c0-3.1,2.6-5.7,5.7-5.7
+	s5.7,2.6,5.7,5.7s-2.6,5.7-5.7,5.7S3.2,12,3.2,8.9z">
+                                            </Path>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
+                                <Button Width="20" Height="20" DockPanel.Dock="Right" x:Name="PART_ContentHostClearButton" Margin="8,0,12,0">
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <Border x:Name="PART_Border" CornerRadius="20" BorderBrush="Transparent" BorderThickness="0" Height="20" Width="20" 
+                                                    Background="#CCCAC9" >
+                                                <Grid x:Name="PART_Path" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                    <Path Data="M2.4,12.1c-0.1,0-0.3,0-0.3-0.1c-0.2-0.2-0.2-0.5,0-0.7L11.3,2c0.2-0.2,0.5-0.2,0.7,0c0.2,0.2,0.2,0.5,0,0.7
+				L2.7,12C2.6,12.1,2.5,12.1,2.4,12.1z" Fill="White" Stretch="None" Stroke="White" StrokeThickness="1"  />
+                                                    <Path Data="M11.6,12.1c-0.1,0-0.3,0-0.3-0.1L2,2.7C1.8,2.5,1.8,2.2,2,2c0.2-0.2,0.5-0.2,0.7,0l9.3,9.3
+				c0.2,0.2,0.2,0.5,0,0.7C11.9,12.1,11.8,12.1,11.6,12.1z" Fill="White" Stretch="None" Stroke="White" StrokeThickness="1"  />
+                                                </Grid>
+                                            </Border>
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsFocused" Value="True" />
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
+
+                                <ScrollViewer DockPanel.Dock="Left" Margin="2" x:Name="PART_ContentHost" Background="{TemplateBinding Background}"/>
+                            </DockPanel>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </UserControl.Resources>
     <Grid>
-        <textBoxs:XSearchTextBox Width=" 340" Height=" 36"></textBoxs:XSearchTextBox>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <textBoxs:XSearchTextBox Grid.Row="0" Width=" 340" Height=" 36" Style="{StaticResource Simple}"></textBoxs:XSearchTextBox>
+        <textBoxs:YSearchTextBox Grid.Row="1" Width=" 340" Height=" 36" Style="{StaticResource goodText}"></textBoxs:YSearchTextBox>
     </Grid>
 </UserControl>

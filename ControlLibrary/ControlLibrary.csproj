@@ -55,10 +55,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="SearchTextBox.xaml.cs">
+    <Compile Include="SearchTextBoxViews\SearchTextBox.xaml.cs">
       <DependentUpon>SearchTextBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="TextBoxs\XSearchTextBox.cs" />
+    <Compile Include="TextBoxs\YSearchTextBox.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -71,7 +72,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="SearchTextBox.xaml">
+    <Page Include="SearchTextBoxViews\SearchTextBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

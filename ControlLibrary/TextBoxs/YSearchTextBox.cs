@@ -10,14 +10,11 @@ using System.Windows.Controls.Primitives;
 
 namespace ControlLibrary.TextBoxs
 {
-    /// <summary>
-    /// 带清除按钮的文字框SearchTextBox
-    /// </summary>
-    public class XSearchTextBox : TextBox
+    public class YSearchTextBox : TextBox
     {
-        static XSearchTextBox()
+        static YSearchTextBox()
         {
-            DefaultStyleKeyProperty.OverrideMetadata(typeof(XSearchTextBox), new FrameworkPropertyMetadata(typeof(XSearchTextBox)));
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(YSearchTextBox), new FrameworkPropertyMetadata(typeof(YSearchTextBox)));
         }
 
         [CategoryAttribute("自定义属性"), DescriptionAttribute("获取或设置默认文字")]
@@ -27,16 +24,14 @@ namespace ControlLibrary.TextBoxs
             set { SetValue(PlaceHolderProperty, value); }
         }
         [CategoryAttribute("自定义属性"), DescriptionAttribute("获取或设置默认文字")]
-        public static readonly DependencyProperty PlaceHolderProperty = DependencyProperty.Register("PlaceHolder", typeof(string), typeof(XSearchTextBox));
+        public static readonly DependencyProperty PlaceHolderProperty = DependencyProperty.Register("PlaceHolder", typeof(string), typeof(YSearchTextBox));
 
         public override void OnApplyTemplate()
         {
             base.OnApplyTemplate();
 
             ButtonBase clearBtn = this.Template.FindName("PART_ContentHostClearButton", this) as ButtonBase;
-            ButtonBase searchBtn = this.Template.FindName("PART_ContentHostSeachButton", this) as ButtonBase;
 
-            searchBtn.Visibility = Visibility.Visible;
             clearBtn.Visibility = Visibility.Collapsed;
             this.Text = PlaceHolder;
             this.Opacity = 0.4;
@@ -52,13 +47,11 @@ namespace ControlLibrary.TextBoxs
                 {
                     this.Text = PlaceHolder;
                     this.Opacity = 0.4;
-                    searchBtn.Visibility = Visibility.Visible;
                     clearBtn.Visibility = Visibility.Collapsed;
                 }
                 else
                 {
                     clearBtn.Visibility = Visibility.Visible;
-                    searchBtn.Visibility = Visibility.Collapsed;
                 }
             };
 
@@ -69,7 +62,6 @@ namespace ControlLibrary.TextBoxs
                     this.Text = "";
                 }
                 clearBtn.Visibility = Visibility.Visible;
-                searchBtn.Visibility = Visibility.Collapsed;
             };
         }
 
@@ -83,7 +75,7 @@ namespace ControlLibrary.TextBoxs
             if (this.Template != null)
             {
                 ButtonBase clearBtn = this.Template.FindName("PART_ContentHostClearButton", this) as ButtonBase;
-                ButtonBase searchBtn = this.Template.FindName("PART_ContentHostSeachButton", this) as ButtonBase;
+                //ButtonBase searchBtn = this.Template.FindName("PART_ContentHostSeachButton", this) as ButtonBase;
                 this.Opacity = 1;
 
                 if (this.Text.Length > 0)
@@ -91,12 +83,10 @@ namespace ControlLibrary.TextBoxs
                     if (this.Text != PlaceHolder)
                     {
                         clearBtn.Visibility = Visibility.Visible;
-                        searchBtn.Visibility = Visibility.Collapsed;
                     }
                     else
                     {
                         this.Opacity = 0.4;
-                        searchBtn.Visibility = Visibility.Visible;
                         clearBtn.Visibility = Visibility.Collapsed;
                     }
                 }
@@ -105,7 +95,6 @@ namespace ControlLibrary.TextBoxs
                     if (this.IsFocused)
                     {
                         clearBtn.Visibility = Visibility.Visible;
-                        searchBtn.Visibility = Visibility.Collapsed;
                     }
                     else
                     {
