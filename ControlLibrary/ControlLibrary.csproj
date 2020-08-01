@@ -60,6 +60,10 @@
     </Compile>
     <Compile Include="TextBoxs\XSearchTextBox.cs" />
     <Compile Include="TextBoxs\YSearchTextBox.cs" />
+    <Page Include="Buttons\UnReadButtons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ListBox\SelectionListBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
