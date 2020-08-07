@@ -1,0 +1,17 @@
+﻿<Window x:Class="ControlLibrary.TabControls.TestWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ControlLibrary.TabControls"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid Background="#FF1F5581">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button Width="132" Height="32" HorizontalAlignment="Left" VerticalAlignment="Center" Content="加Item" Click="Button_Click"></Button>
+        <TabControl Name="tab_Main" Grid.Row="1" Tag="100"></TabControl>
+    </Grid>
+</Window>
